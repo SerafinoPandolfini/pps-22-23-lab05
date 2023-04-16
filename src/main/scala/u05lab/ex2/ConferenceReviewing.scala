@@ -62,7 +62,7 @@ object ConferenceReviewing:
       finalScores.sum.toDouble / finalScores.size
 
     override def accepted(article: Int): Boolean =
-      averageFinalScore(article) > averagePassingScore
+      averageFinalScore(article) >= averagePassingScore
         && reviews.filter(review => review.x == article)
         .map(review => review.y)
         .filter(review => review.keySet.contains(Question.RELEVANCE))
